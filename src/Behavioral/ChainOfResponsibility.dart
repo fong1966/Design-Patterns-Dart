@@ -2,8 +2,8 @@ import '../example.dart';
 
 // 建立三个 Account 到 chain 中
 abstract class Account {
-  Account _successor;
-  double _balance; //账户中现有的钱
+  late Account _successor;
+  late double _balance; //账户中现有的钱
 
   Account(this._balance);
 
@@ -67,8 +67,8 @@ class ChainOfResponsibility extends Example {
     return bank.pay(259);
 
     // ChainOfResponsibility👇👇👇
-    // Cannot pay using Bank. Proceeding ... 
-    // Cannot pay using Paypal. Proceeding ... 
+    // Cannot pay using Bank. Proceeding ...
+    // Cannot pay using Paypal. Proceeding ...
     // Paid 259.0 using Bitcoin
   }
 }

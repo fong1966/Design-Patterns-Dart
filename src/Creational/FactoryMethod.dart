@@ -67,7 +67,7 @@ class FactoryMethod extends Example {
     // FactoryMethod👇👇👇
     // // Create a development manager.
     // What is Design Pattern ?
-    
+
     // // Create a marketing manager.
     // What is Community Building ?
   }

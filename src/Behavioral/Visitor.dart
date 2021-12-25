@@ -20,7 +20,7 @@ class Monkey implements Animal {
   String shout() => 'Ooh oo aa aa!';
 
   @override
-  //他自身拓展的 accept 能力，来自它自身（this） 
+  //他自身拓展的 accept 能力，来自它自身（this）
   String accept(AnimalOperation operation) => operation.visitMonkey(this);
 }
 
@@ -42,13 +42,13 @@ class Dolphin implements Animal {
 // 即将 speak 方法拓展到动物类中每个动物身上
 class Speak implements AnimalOperation {
   @override
-  String visitMonkey(Monkey monkey) => monkey.shout();//猴子会shout
+  String visitMonkey(Monkey monkey) => monkey.shout(); //猴子会shout
 
   @override
-  String visitDolphin(Dolphin dolphin) => dolphin.speak();//海豚会speak
+  String visitDolphin(Dolphin dolphin) => dolphin.speak(); //海豚会speak
 
   @override
-  String visitLion(Lion lion) => lion.roar();//狮子会roar
+  String visitLion(Lion lion) => lion.roar(); //狮子会roar
 }
 
 // 过了一段时间，又给动物们添加了 jump 的 operation
@@ -76,20 +76,19 @@ class Visitor extends Example {
 
     // ? 但其实感觉这里的speak/jump方法只是判断不同的动物类分配不同的方法
     // ? 感觉swich一下动物类来给定不同动物的方法也OK，不晓得这样比visitor模式有何差别
-    
+
     var speak = Speak();
     var jump = Jump();
 
     return """
-    Monkey speak: ${speak.visitMonkey(monkey)}
-    Dolphin speak: ${speak.visitDolphin(dolphin)}
-    Lion jump: ${jump.visitLion(lion)}
+    Monkey speak: ${speak.visitMonkey(monkey as Monkey)}
+    Dolphin speak: ${speak.visitDolphin(dolphin as Dolphin)}
+    Lion jump: ${jump.visitLion(lion as Lion)}
     """;
 
     // Visitor👇👇👇
     // Monkey speak: Ooh oo aa aa!
     // Dolphin speak: Tuut tuttu tuutt!
     // Lion jump: Jumped 7 feet! Back on the ground!
-    
   }
 }

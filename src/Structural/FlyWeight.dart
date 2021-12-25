@@ -6,9 +6,9 @@ class Tea {}
 class TeaMaker {
   Map<String, Tea> availableTea = {};
 
-  Tea make(String teaPreference) {
+  Tea? make(String teaPreference) {
     //把所有的Tea缓存到availableTea表中，节约内存
-    // teaMaker 在 makeTea 时先去找是否已有做好（缓存）的 tea 
+    // teaMaker 在 makeTea 时先去找是否已有做好（缓存）的 tea
     if (availableTea[teaPreference] == null) {
       availableTea[teaPreference] = Tea();
     }
@@ -19,7 +19,7 @@ class TeaMaker {
 // TeaShop依赖一个已经创建的TeaMaker，因为现在tea是缓存在TeaMaker手上的
 // 不过可以考虑把tea缓存在teashop内会更好一些，并在初始化teashop时新建TeaMaker
 class TeaShop {
-  List<Tea> orders = List.filled(10, null);
+  List<Tea?> orders = List.filled(10, null);
   TeaMaker _teaMaker;
 
   TeaShop(this._teaMaker);
@@ -42,7 +42,6 @@ class TeaShop {
     return ordersResult;
   }
 }
-
 
 class FlyWeight extends Example {
   FlyWeight([String filePath = "src/Structural/FlyWeight.dart"])

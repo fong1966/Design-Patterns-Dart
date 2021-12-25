@@ -1,11 +1,11 @@
 import '../example.dart';
 
 class Burger {
-  double _size;
-  bool _cheese;
-  bool _beef;
-  bool _lettuce;
-  bool _tomato;
+  late double _size;
+  late bool _cheese;
+  late bool _beef;
+  late bool _lettuce;
+  late bool _tomato;
 
   // Not good:  Burger(this._size, this._cheese, this._beef, this._lettuce, this._tomato);
   // 把所有的属性都挤在了构造参数里
@@ -32,7 +32,7 @@ class Burger {
 // 配置方法返回 builder 本身（this）来连续配置属性
 // BurgerBuilder().addCheese().addBeef().build();
 class BurgerBuilder {
-  double _size;
+  late double _size;
   bool _cheese = false;
   bool _beef = false;
   bool _lettuce = false;
